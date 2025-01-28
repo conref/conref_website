@@ -38,8 +38,47 @@ th {
     font-size: 24px;
 }
 
-.mapboxgl-popup-content {
-    overflow-y: scroll !important;
-    max-height: 500px;
-    width: 450px;
+.custom-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 600px; /* Amplada més ampla */
+    max-width: 95%; /* Amplada màxima relativa a la finestra */
+    max-height: 80%; /* Limitar alçada per forçar scroll vertical */
+    overflow: hidden; /* Evitar scrolls externs */
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-popup-content {
+    padding: 20px;
+    overflow-y: auto; /* Només scroll vertical */
+    overflow-x: hidden; /* Evitar scroll horitzontal */
+    flex: 1;
+    word-wrap: break-word; /* Trencar paraules llargues si cal */
+    white-space: normal; /* Assegurar que el text respecti l'espai disponible */
+    text-align: justify; /* Opcional: alineació justificada per millorar la llegibilitat */
+}
+
+.custom-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.custom-popup-close:hover {
+    color: #000;
 }
